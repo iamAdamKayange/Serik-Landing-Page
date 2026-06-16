@@ -28,7 +28,7 @@ const Features = () => {
   const { isDarkMode } = useTheme();
 
   return (
-    <section className={`py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${
+    <section id="vipengele" className={`py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${
       isDarkMode ? 'bg-darkBg' : 'bg-slate-50'
     }`} id="vipengele">
       <div className="max-w-7xl mx-auto">

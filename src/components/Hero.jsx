@@ -27,7 +27,7 @@ const Hero = ({ onTafutaClick, onSajiliClick }) => {
   }, [images.length]);
 
   return (
-    <section className={`min-h-[90vh] flex items-center py-16 px-4 sm:px-6 lg:px-8 overflow-hidden transition-colors duration-300 ${
+    <section id="nyumbani" className={`min-h-[90vh] flex items-center py-16 px-4 sm:px-6 lg:px-8 overflow-hidden transition-colors duration-300 ${
       isDarkMode 
         ? 'bg-gradient-to-br from-gray-900 via-slate-800 to-slate-900' 
         : 'bg-gradient-to-br from-emerald-950 via-emerald-900 to-slate-900'
