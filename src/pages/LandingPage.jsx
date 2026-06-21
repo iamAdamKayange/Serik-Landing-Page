@@ -8,11 +8,13 @@ import CTA from '../components/CTA';
 import Footer from '../components/Footer';
 import Modal from '../components/Modal';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 
 const LandingPage = () => {
   const [isSajiliModalOpen, setIsSajiliModalOpen] = useState(false);
   const [isMwanafunziModalOpen, setIsMwanafunziModalOpen] = useState(false);
   const { isDarkMode } = useTheme();
+  const { t } = useLanguage();
 
   const handleAnzaClick = () => {
     console.log("✅ 'Anza Sasa' kimebonyezwa!");
@@ -44,21 +46,21 @@ const LandingPage = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-emerald-700 dark:text-emerald-400 text-xs font-bold tracking-wider uppercase bg-emerald-100/60 dark:bg-emerald-900/60 px-3 py-1.5 rounded-full">
-              Maswali na Ufafanuzi
+              {t('qa_title')}
             </span>
             <h2 className={`text-3xl sm:text-4xl font-extrabold mt-4 tracking-tight ${textColor}`}>
-              Una Maswali? SERIK Ina Majibu.
+              {t('qa_subtitle')}
             </h2>
             <p className={`mt-3 text-base ${subtextColor}`}>
-              Tunajua changamoto unazopitia mtaani. Hivi ndivyo tunavyokurudishia amani yako ya akili.
+              {t('qa_desc')}
             </p>
           </div>
           <div className="space-y-6">
             {[
-              { q: "Je, umechoka kuzurura juani kutafuta nyumba ya kupanga?", a: "Ukiwa na SERIK, unapata kuchagua chumba ukipendacho kutoka miongoni mwa maelfu ya nyumba kiganjani mwako." },
-              { q: "Je, hutaki kutapeliwa na madalali wasio waaminifu?", a: "Ukiwa na SERIK, unazungumza moja kwa moja na mwenye nyumba aliyeidhinishwa bila usumbufu wa mtu wa kati." },
-              { q: "Je, unaogopa kuishi mbali na huduma za msingi au maeneo yasiyo salama?", a: "Ukiwa na SERIK, unaona kila kitu mapema—umbali wa kutoka chuoni kwako pamoja na huduma zote za karibu." },
-              { q: "Je, umechoka kuona vyumba vyako vinakaa wazi bila wapangaji kila msimu wa chuo?", a: "Ukiwa na SERIK, unafikia maelfu ya wanafunzi kwa wakati mmoja na kujaza nyumba yako mapema bila kutegemea madalali." }
+              { q: t('qa_q1'), a: t('qa_a1') },
+              { q: t('qa_q2'), a: t('qa_a2') },
+              { q: t('qa_q3'), a: t('qa_a3') },
+              { q: t('qa_q4'), a: t('qa_a4') }
             ].map((item, idx) => (
               <div key={idx} className="bg-white dark:bg-darkSurface rounded-2xl overflow-hidden shadow-sm border border-slate-200/60 dark:border-darkBorder transition duration-200 hover:shadow-md">
                 <div className="p-5 sm:px-6 flex items-start gap-3.5 border-b border-slate-100 dark:border-darkBorder">
@@ -74,7 +76,7 @@ const LandingPage = () => {
           </div>
           <div className="mt-12 text-center">
             <p className="text-sm font-semibold text-emerald-800/80 dark:text-emerald-400/80 tracking-wide italic">
-              "Ndoto za kijana huanzia getto, na sisi tupo pamoja nawe kutimiza ndoto zako."
+              {t('qa_footer')}
             </p>
           </div>
         </div>
@@ -92,28 +94,28 @@ const LandingPage = () => {
       <Modal
         isOpen={isSajiliModalOpen}
         onClose={() => setIsSajiliModalOpen(false)}
-        title="Usajili wa Nyumba"
-        subtitle="Miliki Mfumo Wako"
+        title={t('modal_sajili_title')}
+        subtitle={t('modal_sajili_subtitle')}
         footer={
           <button 
             onClick={() => setIsSajiliModalOpen(false)} 
             className="w-full py-2.5 bg-slate-200 dark:bg-gray-700 hover:bg-slate-300 dark:hover:bg-gray-600 text-slate-800 dark:text-gray-200 text-sm font-bold rounded-xl transition"
           >
-            Funga Dirisha
+            {t('modal_sajili_close')}
           </button>
         }
       >
         <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-          Ili kusajili nyumba au hosteli yako kwenye mfumo wa SERIK, tafadhali wasiliana na timu yetu ya usaidizi moja kwa moja:
+          {t('modal_sajili_desc')}
         </p>
         <div className="bg-emerald-50 dark:bg-emerald-900/30 p-4 rounded-xl border border-emerald-100 dark:border-emerald-800 group">
-          <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300 block mb-1">Piga au WhatsApp</span>
+          <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300 block mb-1">{t('modal_sajili_phone')}</span>
           <a href="tel:+255616294403" className="text-lg font-black text-emerald-950 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition block">
             +255 616 294 403
           </a>
         </div>
         <div className="text-xs text-gray-400 dark:text-gray-500 font-medium pt-2">
-          <p className="text-slate-800 dark:text-gray-200 font-semibold">SERIK, Makao Makuu</p>
+          <p className="text-slate-800 dark:text-gray-200 font-semibold">{t('modal_sajili_office')}</p>
           <p className="mt-0.5">Dodoma, Tanzania</p>
         </div>
       </Modal>
@@ -122,31 +124,31 @@ const LandingPage = () => {
       <Modal
         isOpen={isMwanafunziModalOpen}
         onClose={() => setIsMwanafunziModalOpen(false)}
-        title="Karibu SERIK Mwanachuo!"
-        subtitle="Mzigo Unajipika! 🚀"
+        title={t('modal_mwanafunzi_title')}
+        subtitle={t('modal_mwanafunzi_subtitle')}
         footer={
           <button 
             onClick={() => setIsMwanafunziModalOpen(false)} 
             className="w-full py-2.5 bg-emerald-950 hover:bg-emerald-900 text-emerald-400 text-sm font-bold rounded-xl transition shadow-md"
           >
-            Inapendeza, Nitasubiri! 🙌
+            {t('modal_mwanafunzi_close')}
           </button>
         }
       >
         <p className="text-base font-bold text-slate-900 dark:text-white">
-          Gheto Safi Ndani ya Dakika Chache? Tunakuja Kusafisha Mtaa!
+          {t('modal_mwanafunzi_desc1')}
         </p>
         <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-          Tunakamilisha hatua za mwisho za usajili wa magheto na hosteli kali zaidi mjini ili kukuondolea stress za madalali. 
+          {t('modal_mwanafunzi_desc2')}
         </p>
         <div className="bg-emerald-50 dark:bg-emerald-900/30 p-4 rounded-xl border border-emerald-100/80 dark:border-emerald-800">
-          <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300 block mb-1">Mchongo Unakuwa Live</span>
+          <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300 block mb-1">{t('modal_mwanafunzi_live')}</span>
           <span className="text-xl font-black text-emerald-950 dark:text-emerald-400 block">
             31 August 2026
           </span>
         </div>
         <p className="text-xs text-gray-400 dark:text-gray-500 italic pt-1">
-          "Kaa mkao wa kula, maandalizi ya chuo msimu huu yatakuwa burudani sana!"
+          {t('modal_mwanafunzi_quote')}
         </p>
       </Modal>
     </div>

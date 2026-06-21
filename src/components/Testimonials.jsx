@@ -1,19 +1,39 @@
 import React from 'react';
 import { useTheme } from '../context/ThemeContext';
-
-const testimonials = [
-  { name: "Aika M.", role: "Mwanafunzi, CBE", text: "Kutafuta getto ukiwa mkoani kabla ya kuripoti chuo ilikuwa mtihani mkubwa sana kwangu. Ila kupitia SERIK, nilipata chumba kwa urahisi nikiwa bado nyumbani kwetu.", rating: 5, initials: "AM" },
-  { name: "Juma S.", role: "Mwanafunzi, IRDP", text: "Madalali walishanipiga sana hela za mzunguko hapa mjini kila msimu wa kuhama getto. SERIK imenipunguzia kero; nimeongea na mmiliki moja kwa moja na nikapata chumba, ni mseleleko.", rating: 5, initials: "JS" },
-  { name: "Mama Masawe", role: "Mmiliki wa Hosteli, Dodoma", text: "Hostel yangu ilikuwa inachelewa sana kujaa wapangaji msimu wa chuo unapoanza kwa sababu ya kutegemea madalali wa mtaani. Tangu nifanye kazi na SERIK, nafikia wanafunzi wengi kwa haraka sana.", rating: 5, initials: "MM" }
-];
+import { useLanguage } from '../context/LanguageContext';
 
 const Testimonials = () => {
   const { isDarkMode } = useTheme();
+  const { t } = useLanguage();
+
+  const testimonials = [
+    { 
+      name: "Aika M.", 
+      role: t('testimonials_role1'), // 🔥 Role imetafsiriwa
+      text: t('testimonial1_text'), 
+      rating: 5, 
+      initials: "AM" 
+    },
+    { 
+      name: "Juma S.", 
+      role: t('testimonials_role2'), // 🔥 Role imetafsiriwa
+      text: t('testimonial2_text'), 
+      rating: 5, 
+      initials: "JS" 
+    },
+    { 
+      name: "Mama Masawe", 
+      role: t('testimonials_role3'), // 🔥 Role imetafsiriwa
+      text: t('testimonial3_text'), 
+      rating: 5, 
+      initials: "MM" 
+    }
+  ];
 
   return (
     <section id="maoni" className={`py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${
       isDarkMode ? 'bg-darkBg' : 'bg-white'
-    }`} id="maoni">
+    }`}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className={`text-xs font-bold tracking-wider uppercase px-3 py-1.5 rounded-full ${
@@ -21,17 +41,17 @@ const Testimonials = () => {
               ? 'text-emerald-400 bg-emerald-900/60'
               : 'text-emerald-700 bg-emerald-100/60'
           }`}>
-            Ushuhuda Mtaani
+            {t('testimonials_title')}
           </span>
           <h2 className={`text-3xl sm:text-4xl font-extrabold mt-4 tracking-tight ${
             isDarkMode ? 'text-white' : 'text-slate-950'
           }`}>
-            Wanafunzi na Wamiliki Wanasemaje?
+            {t('testimonials_subtitle')}
           </h2>
           <p className={`mt-3 text-base ${
             isDarkMode ? 'text-gray-300' : 'text-gray-650'
           }`}>
-            Usiishie tu kutusikia sisi—soma maoni kutoka kwa watu walioweka kando stress za madalali kupitia SERIK.
+            {t('testimonials_desc')}
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

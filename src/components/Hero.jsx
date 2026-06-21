@@ -13,9 +13,11 @@ import img10 from '../assets/images/10.jpg';
 // Import logo ya SERIK
 import logoSerik from '../assets/images/seriki.png';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 
 const Hero = ({ onTafutaClick, onSajiliClick }) => {
   const { isDarkMode } = useTheme();
+  const { t } = useLanguage();
   const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -53,21 +55,21 @@ const Hero = ({ onTafutaClick, onSajiliClick }) => {
               : 'bg-emerald-800/50 border-emerald-700 text-emerald-300'
           }`}>
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            App ya Nyumba za Chuo
+            {t('badge')}
           </span>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white">
-            Pata Getto Lako, <br className="hidden sm:inline" />
-            <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">Kiganjani Mwako.</span>
+            {t('hero_title')} <br className="hidden sm:inline" />
+            <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">{t('hero_title_highlight')}</span>
           </h1>
           <p className={`text-base sm:text-lg font-normal leading-relaxed max-w-xl mx-auto lg:mx-0 ${
             isDarkMode ? 'text-gray-300' : 'text-emerald-100/80'
           }`}>
-            SERIK inakuunganisha na maelfu ya nyumba za kupanga maeneo ya vyuo vikuu na jirani. 
+            {t('hero_desc')}
             <span className={`block mt-3 font-medium italic border-l-2 pl-3 ${
               isDarkMode ? 'text-emerald-400 border-emerald-500' : 'text-emerald-300 border-emerald-500'
             }`}>
-              "Ndoto za kijana huanzia getto, na sisi tupo pamoja nawe kutimiza ndoto zako."
+              {t('hero_quote')}
             </span>
           </p>
           <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
@@ -75,7 +77,7 @@ const Hero = ({ onTafutaClick, onSajiliClick }) => {
               onClick={onTafutaClick}
               className="inline-flex justify-center items-center px-8 py-3.5 border border-transparent text-base font-bold rounded-xl text-emerald-950 bg-gradient-to-r from-emerald-400 to-teal-300 hover:from-emerald-300 hover:to-teal-200 transition duration-200 shadow-lg shadow-emerald-900/40 transform hover:-translate-y-0.5"
             >
-              Tafuta Getto Sasa
+              {t('hero_btn_find')}
             </button>
             <button
               onClick={onSajiliClick}
@@ -85,7 +87,7 @@ const Hero = ({ onTafutaClick, onSajiliClick }) => {
                   : 'border-emerald-700 text-emerald-200 bg-emerald-900/30 hover:bg-emerald-800/40'
               }`}
             >
-              Sajili Nyumba Yako
+              {t('hero_btn_register')}
             </button>
           </div>
           <div className={`pt-6 border-t grid grid-cols-3 gap-4 max-w-sm mx-auto lg:mx-0 text-left ${
@@ -93,13 +95,13 @@ const Hero = ({ onTafutaClick, onSajiliClick }) => {
           }`}>
             <div><p className="text-2xl font-black text-emerald-300">100+</p><p className={`text-xs font-medium ${
               isDarkMode ? 'text-gray-400' : 'text-emerald-200/60'
-            }`}>Mageto & Hosteli</p></div>
+            }`}>{t('hero_stats_houses')}</p></div>
             <div><p className="text-2xl font-black text-emerald-300">0%</p><p className={`text-xs font-medium ${
               isDarkMode ? 'text-gray-400' : 'text-emerald-200/60'
-            }`}>Usumbufu wa Dalali</p></div>
+            }`}>{t('hero_stats_brokers')}</p></div>
             <div><p className="text-2xl font-black text-emerald-300">100%</p><p className={`text-xs font-medium ${
               isDarkMode ? 'text-gray-400' : 'text-emerald-200/60'
-            }`}>Vimehakikiwa</p></div>
+            }`}>{t('hero_stats_verified')}</p></div>
           </div>
         </div>
         <div className="relative w-full max-w-md mx-auto lg:max-w-none flex justify-center lg:justify-end">

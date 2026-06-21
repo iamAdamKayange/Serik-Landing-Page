@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 
 const Modal = ({ isOpen, onClose, title, subtitle, children, footer }) => {
   const { isDarkMode } = useTheme();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleEscape = (e) => {
@@ -26,11 +28,13 @@ const Modal = ({ isOpen, onClose, title, subtitle, children, footer }) => {
         <div className="bg-gradient-to-r from-emerald-950 to-emerald-900 p-6 text-center relative">
           {title && (
             <span className="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-900/50 px-3 py-1 rounded-full">
-              {title}
+              {typeof title === 'string' ? t(title) || title : title}
             </span>
           )}
           {subtitle && (
-            <h3 className="text-xl font-black text-white mt-3">{subtitle}</h3>
+            <h3 className="text-xl font-black text-white mt-3">
+              {typeof subtitle === 'string' ? t(subtitle) || subtitle : subtitle}
+            </h3>
           )}
         </div>
 

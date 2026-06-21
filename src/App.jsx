@@ -1,11 +1,14 @@
 import React from 'react';
 import LandingPage from './pages/LandingPage';
 import { ThemeProvider } from './context/ThemeContext';
+import { LanguageProvider } from './context/LanguageContext';
 
 function App() {
   return (
     <ThemeProvider>
-      <LandingPage />
+      <LanguageProvider>
+        <LandingPage />
+      </LanguageProvider>
     </ThemeProvider>
   );
 }

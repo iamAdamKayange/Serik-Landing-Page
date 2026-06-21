@@ -1,8 +1,10 @@
 import React from 'react';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 
 const Footer = () => {
   const { isDarkMode } = useTheme();
+  const { t } = useLanguage();
 
   return (
     <footer className={`pt-16 pb-10 px-4 sm:px-6 lg:px-8 relative overflow-hidden transition-colors duration-300 ${
@@ -17,11 +19,11 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
           <div className="md:col-span-5 space-y-4">
-            <span className="text-2xl font-black tracking-wider text-emerald-400">SERIK</span>
+            <span className="text-2xl font-black tracking-wider text-emerald-400">{t('app_name')}</span>
             <p className={`text-sm leading-relaxed max-w-sm ${
               isDarkMode ? 'text-gray-300' : 'text-emerald-200/70'
             }`}>
-              Soko la kidijitali linalowaunganisha wanafunzi wa vyuo vikuu na wamiliki wa nyumba na hosteli zilizohakikiwa kwa usalama na urahisi zaidi nchini Tanzania.
+              {t('footer_tagline')}
             </p>
             <div className="pt-2 flex items-center gap-4">
               <a href="https://instagram.com/serik_app" target="_blank" className={`w-9 h-9 rounded-lg flex items-center justify-center transition ${
@@ -48,18 +50,18 @@ const Footer = () => {
             </div>
           </div>
           <div className="md:col-span-3 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-emerald-400">Vipengele</h4>
+            <h4 className="text-xs font-bold uppercase tracking-widest text-emerald-400">{t('footer_features')}</h4>
             <ul className={`space-y-2 text-sm ${
               isDarkMode ? 'text-gray-300' : 'text-emerald-200/60'
             }`}>
-              <li><a href="#" className={`transition ${isDarkMode ? 'hover:text-emerald-400' : 'hover:text-white'}`}>Mwanzo</a></li>
-              <li><a href="#" className={`transition ${isDarkMode ? 'hover:text-emerald-400' : 'hover:text-white'}`}>Sifa za App</a></li>
-              <li><a href="#" className={`transition ${isDarkMode ? 'hover:text-emerald-400' : 'hover:text-white'}`}>Jinsi Inavyofanya Kazi</a></li>
-              <li><a href="#" className={`transition ${isDarkMode ? 'hover:text-emerald-400' : 'hover:text-white'}`}>Ushuhuda wetu</a></li>
+              <li><a href="#" className={`transition ${isDarkMode ? 'hover:text-emerald-400' : 'hover:text-white'}`}>{t('footer_features_start')}</a></li>
+              <li><a href="#" className={`transition ${isDarkMode ? 'hover:text-emerald-400' : 'hover:text-white'}`}>{t('footer_features_app')}</a></li>
+              <li><a href="#" className={`transition ${isDarkMode ? 'hover:text-emerald-400' : 'hover:text-white'}`}>{t('footer_features_how')}</a></li>
+              <li><a href="#" className={`transition ${isDarkMode ? 'hover:text-emerald-400' : 'hover:text-white'}`}>{t('footer_features_testimonials')}</a></li>
             </ul>
           </div>
           <div className="md:col-span-4 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-emerald-400">Mawasiliano</h4>
+            <h4 className="text-xs font-bold uppercase tracking-widest text-emerald-400">{t('footer_contact')}</h4>
             <ul className={`space-y-3 text-sm ${
               isDarkMode ? 'text-gray-300' : 'text-emerald-200/70'
             }`}>
@@ -73,7 +75,7 @@ const Footer = () => {
                 <svg className={`w-4 h-4 shrink-0 ${
                   isDarkMode ? 'text-emerald-400' : 'text-emerald-400'
                 }`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                <a href="mailto:cerealisf@gmail.com" className={`transition ${isDarkMode ? 'hover:text-emerald-400' : 'hover:text-emerald-300'}`}>informserik@gmail.com</a>
+                <a href="mailto:cerealisf@gmail.com" className={`transition ${isDarkMode ? 'hover:text-emerald-400' : 'hover:text-emerald-300'}`}>cerealisf@gmail.com</a>
               </li>
               <li className={`flex items-center gap-2.5 ${
                 isDarkMode ? 'text-gray-500' : 'text-emerald-200/50'
@@ -91,8 +93,8 @@ const Footer = () => {
             ? 'border-gray-700 text-gray-400' 
             : 'border-emerald-900/40 text-emerald-300/40'
         }`}>
-          <p>&copy; 2026 SERIK Inc. Haki zote zimehifadhiwa.</p>
-          <p className="italic">Ndoto za kijana huanzia getto.</p>
+          <p>&copy; 2026 SERIK Inc. {t('footer_copyright')}</p>
+          <p className="italic">{t('footer_quote')}</p>
         </div>
       </div>
     </footer>

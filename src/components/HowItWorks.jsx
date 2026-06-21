@@ -1,37 +1,41 @@
 import React from 'react';
 import demoVideo from '../assets/videos/demo.mp4';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 
 const HowItWorks = () => {
   const { isDarkMode } = useTheme();
+  const { t } = useLanguage();
+
+  const steps = [
+    { num: "1", title: t('how_step1_title'), desc: t('how_step1_desc') },
+    { num: "2", title: t('how_step2_title'), desc: t('how_step2_desc') },
+    { num: "3", title: t('how_step3_title'), desc: t('how_step3_desc') }
+  ];
 
   return (
     <section id="jinsiyakutumia" className={`py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${
       isDarkMode ? 'bg-darkBg' : 'bg-white'
-    }`} id="jinsiyakutumia">
+    }`}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-emerald-700 dark:text-emerald-400 text-xs font-bold tracking-wider uppercase bg-emerald-100/60 dark:bg-emerald-900/60 px-3 py-1.5 rounded-full">
-            Mwongozo Rahisi
+            {t('how_title')}
           </span>
           <h2 className={`text-3xl sm:text-4xl font-extrabold mt-4 tracking-tight ${
             isDarkMode ? 'text-white' : 'text-slate-950'
           }`}>
-            Jinsi Inavyofanya Kazi
+            {t('how_title')}
           </h2>
           <p className={`mt-3 text-base ${
             isDarkMode ? 'text-gray-300' : 'text-gray-650'
           }`}>
-            Urahisi wa SERIK upo kwenye hatua hizi tatu tu. Tazama jinsi unavyoweza kupata getto lako jipya ndani ya dakika chache.
+            {t('how_subtitle')}
           </p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5 space-y-10">
-            {[
-              { num: "1", title: "Tafuta Eneo Unalotaka", desc: "Weka jina la chuo chako au mtaa unaopenda. SERIK itakuletea mageto na hosteli zote za karibu." },
-              { num: "2", title: "Chagua Chumba Ukipendacho", desc: "Angalia picha halisi, linganisha bei za kodi, umbali kutoka chuoni, na kagua sifa za chumba." },
-              { num: "3", title: "Wasiliana na Mwenye Nyumba", desc: "Ukiridhika na chumba, unachukua namba au unaunganishwa moja kwa moja na mmiliki aliyeidhinishwa." }
-            ].map((step, idx) => (
+            {steps.map((step, idx) => (
               <div key={idx} className="flex gap-5 relative">
                 {idx < 2 && <div className={`absolute top-12 left-6 w-0.5 h-16 ${
                   isDarkMode ? 'bg-gray-700' : 'bg-slate-200'
