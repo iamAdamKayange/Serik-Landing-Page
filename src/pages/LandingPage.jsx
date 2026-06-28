@@ -110,7 +110,7 @@ const LandingPage = () => {
         </p>
         <div className="bg-emerald-50 dark:bg-emerald-900/30 p-4 rounded-xl border border-emerald-100 dark:border-emerald-800 group">
           <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300 block mb-1">{t('modal_sajili_phone')}</span>
-          <a href="tel:+255616294403" className="text-lg font-black text-emerald-950 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition block">
+          <a href="tel:+255681393000" className="text-lg font-black text-emerald-950 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition block">
             +255 681 393 000
           </a>
         </div>
