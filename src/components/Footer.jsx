@@ -33,7 +33,7 @@ const Footer = () => {
               }`}>
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
               </a>
-              <a href="https://wa.me/255743593381" target="_blank" className={`w-9 h-9 rounded-lg flex items-center justify-center transition ${
+              <a href="https://wa.me/255681393000" target="_blank" className={`w-9 h-9 rounded-lg flex items-center justify-center transition ${
                 isDarkMode 
                   ? 'bg-gray-800 text-emerald-300 hover:bg-emerald-500 hover:text-gray-900' 
                   : 'bg-emerald-900/50 text-emerald-300 hover:bg-emerald-400 hover:text-emerald-950'
@@ -69,13 +69,13 @@ const Footer = () => {
                 <svg className={`w-4 h-4 shrink-0 ${
                   isDarkMode ? 'text-emerald-400' : 'text-emerald-400'
                 }`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-                <a href="tel:+255743593381" className={`transition ${isDarkMode ? 'hover:text-emerald-400' : 'hover:text-emerald-300'}`}>+255 743 593 381</a>
+                <a href="tel:+255743593381" className={`transition ${isDarkMode ? 'hover:text-emerald-400' : 'hover:text-emerald-300'}`}>+255 681 393 000</a>
               </li>
               <li className="flex items-center gap-2.5">
                 <svg className={`w-4 h-4 shrink-0 ${
                   isDarkMode ? 'text-emerald-400' : 'text-emerald-400'
                 }`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                <a href="mailto:cerealisf@gmail.com" className={`transition ${isDarkMode ? 'hover:text-emerald-400' : 'hover:text-emerald-300'}`}>cerealisf@gmail.com</a>
+                <a href="mailto:cerealisf@gmail.com" className={`transition ${isDarkMode ? 'hover:text-emerald-400' : 'hover:text-emerald-300'}`}>serikcompany2026@gmail.com</a>
               </li>
               <li className={`flex items-center gap-2.5 ${
                 isDarkMode ? 'text-gray-500' : 'text-emerald-200/50'
