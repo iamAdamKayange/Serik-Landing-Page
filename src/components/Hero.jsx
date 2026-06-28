@@ -136,7 +136,7 @@ const Hero = ({ onTafutaClick, onSajiliClick }) => {
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
             <p className={`text-xs font-bold ${
               isDarkMode ? 'text-emerald-300' : 'text-emerald-100'
-            }`}>{t('new_room_added')}</p> {/* 🔥 Sasa imetafsiriwa */}
+            }`}>{t('new_room_added')}</p>
           </div>
         </div>
       </div>
